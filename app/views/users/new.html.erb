@@ -1,0 +1,35 @@
+<br/> <br/>
+<center>
+<h1>Inscription </h1>
+
+<p>Rentre toutes les infos nécessaires à ton inscription :</p>
+
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+     <%= label_tag 'Ton prénom :' %>
+     <br />
+     <%= text_field_tag 'first_name' %>
+     <br /> <br />
+
+     <%= label_tag 'Ton nom :' %>
+     <br />
+     <%= text_field_tag 'name' %>
+     <br /> <br />
+
+     <%= label_tag 'Ton âge :' %>
+     <br />
+     <%= text_field_tag 'age' %>
+     <br /> <br />
+
+     <%= label_tag 'Ton adresse mail :' %>
+     <br />
+     <%= text_field_tag 'email' %>
+     <br /> <br />
+
+     <%= label_tag 'Mot de passe :' %>
+     <br />
+     <%= password_field_tag 'password' %>
+     <br /> <br />
+
+     <%= submit_tag "Inscription"%>
+   <% end %>
+</center>

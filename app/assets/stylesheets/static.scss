@@ -1,3 +1,23 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin : 42px;
+}
+
+.fond {
+ position: fixed; /* Le fond est fixé en haut de la page */
+ width: 100%; /* Il occupe toute la largeur de l'écran */
+ height: 300px; /* On met ici la même hauteur que le jumbotron */
+ top:0;
+ left:0;
+ z-index: -1;
+}
+.jumbotron {
+ text-shadow: black 0.3em 0.3em 0.3em;
+ margin-bottom: 0px;
+ height: 300px;
+ color: white; /* Le texte sera affiché en blanc */
+ background:transparent;
+}

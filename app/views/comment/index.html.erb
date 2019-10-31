@@ -1,0 +1,17 @@
+<center>
+<h1>Comment#index</h1>
+
+<!-- Afficher tous les potins -->
+  <h2>Voici la liste des commentaires existants : </h2>
+   <br/> <br/>
+    <div class="card-columns" style = "display-flex text-center">
+      <% @comments.each do |comments| %>
+      <div class="card border-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Gossip n°<%=comments.id %> : <%= comments.content %> </h5>
+          <p class="card-text text-muted">Ecrit par <%= comments.user.first_name %> <%= comments.user.name %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</center>

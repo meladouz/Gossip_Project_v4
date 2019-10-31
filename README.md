@@ -9,7 +9,8 @@ gem "table_print", "~> 1.5"
 gem 'bootstrap'
 <br />
 
-* Pour lancer l'app :
-<code> $ bundle install </code>
-<code> $ rails server  </code>
+* Pour lancer l'app : <br />
+<code> $ bundle install </code> <br />
+<code> $ rails db:seed </code> <br />
+<code> $ rails server  </code> <br />
 http://localhost:3000/static/

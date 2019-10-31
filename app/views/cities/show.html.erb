@@ -1,0 +1,25 @@
+<center>
+<% n = params['id'].to_i %>
+<br/> <br/>
+<h1><%= @city.name%> (ville N° <%= n %>) </h1>
+<br/> <br/>
+<h2>Les potins concernant cette ville :</h2>
+<br/> <br/>
+
+<div class="card-row">
+    <% index = 0 %>
+    <% while @city.users.length > index %>
+      <div class="card border-light mb-3" style="max-width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title"> <%= @city.users[index].first_name%> a écrit : </h5>
+          <!-- UTILISATION link_to POUR RENVOYER À LA PAGE DU GOSSIP-->
+          <% x = 0 %>
+          <% while @city.users[index].gossips.length > x %>
+          <p class="card-text"> <small><%= @city.users[index].gossips[x].gossip %></small></p>
+          <% x += 1 %>
+          <% end %>
+        </div>
+      </div>
+    <% index += 1 %>
+    <% end %>
+</div>

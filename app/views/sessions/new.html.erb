@@ -1,0 +1,26 @@
+<center>
+<br /><br />
+<h1>Connexion</h1>
+<br /><br />
+
+<%= form_tag "/sessions/", method: :post do %>
+  <p>Ton mail :</p><input type="email" name="email" /><br />
+  <br />
+  <p>Ton mot de passe :</p><input type="password" name="password" /><br />
+  <br />
+  <input type="submit" value="Se connecter" /><br />
+<% end %>
+<br /><br />
+<!-- Message alerte : pb de connexion -->
+<% if current_user == nil %>
+  <div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= flash[:danger] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+</center>

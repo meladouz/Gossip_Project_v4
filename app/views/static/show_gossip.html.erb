@@ -1,24 +1,30 @@
 <br/> <br/>
 <center>
 <% n = params['id'].to_i %>
-<h1>Page du gossip N° <%= n %> </h1>
+<h1> Gossip  "<%= @gossips[n-1].title %>" (N° <%= n %>)</h1>
 <br/> <br/>
-<div class="card text-white bg-dark mb-3" style="max-width: 30rem;">
-  <div class="card-header"><strong>Informations sur l'auteur </strong> </div>
+  <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+    <div class="card-header">Voici ce que <strong><%= @gossips[n-1].user.first_name%> <%= @gossips[n-1].user.name%> </strong> a écrit comme potin : </div>
+    <div class="card-body">
+      <p class="card-text"> <p> <%= @gossips[n-1].gossip %></p>
+      <p class="card-text"><small class="text-muted"><strong>date de création :</strong>  <%= @gossips[n-1].created_at %></p>
+      <button type="button" class="btn btn-success"><a href="/static/<%=n%>/comments/new" style="text-decoration:none !important; color:white">Commenter</a></button>
+      <%= button_to "Like", static_likes_path(@gossip, static_id: params[:id]), method: :post%>
+    </div>
+  </div>
+ <br/>
+<div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+  <div class="card-header">Informations sur l'auteur</div>
   <div class="card-body">
-    <p class="card-text"> <a href="/static/autor/<%=@gossips[n].user_id%>"> <strong></strong><%= @gossips[n].user.first_name%> <%= @gossips[n].user.name %><br /> </a>
-      <strong>Age - </strong>  <%=@gossips[n].user.age %> ans<br />
-      <strong>Mail - </strong>  <%= @gossips[n].user.email %><br />
+    <p class="card-text"> <%= @gossips[n-1].user.first_name%> <%= @gossips[n-1].user.name %><br />
+      <strong>Age - </strong>  <%=@gossips[n-1].user.age %> ans<br />
+      <strong>Mail - </strong>  <%= @gossips[n-1].user.email %><br />
+      <strong>Ville - </strong>  <%= @gossips[n-1].user.city.name%><br />
+      <br />
+      <button type="button" class="btn btn-success"><a href="/static/autor/<%=@gossips[n-1].user_id%>" style="text-decoration:none !important; color:white"> Page de l'auteur</a></button>
+      <button type="button" class="btn btn-success"><a href="/cities/<%=@gossips[n-1].user.city_id%>" style="text-decoration:none !important; color:white"> Page de la ville</a></button>
       </p>
   </div>
 </div>
-<br/>
 
-<div class="card text-white bg-dark mb-3" style="max-width: 30rem;">
-  <div class="card-header"><strong>Voici ce que <strong><%= @gossips[n].user.name  %> </strong> a écrit comme potin :</strong> </div>
-  <div class="card-body">
-    <p class="card-text"> <p> <%= @gossips[n].gossip %></p>
-    <p class="card-text"><small class="text-muted"><strong>date de création =</strong>  <%= @gossips[n].created_at %></p>
-  </div>
-</div>
 </center>
