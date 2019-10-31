@@ -1,6 +1,7 @@
 <br/> <br/>
 <center>
 <% n = params['id'].to_i %>
+<!-- Affiche le gossip num n + infos associées -->
 <h1> Gossip  "<%= @gossips[n-1].title %>" (N° <%= n %>)</h1>
 <br/> <br/>
   <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
@@ -10,9 +11,15 @@
       <p class="card-text"><small class="text-muted"><strong>date de création :</strong>  <%= @gossips[n-1].created_at %></p>
       <button type="button" class="btn btn-success"><a href="/static/<%=n%>/comments/new" style="text-decoration:none !important; color:white">Commenter</a></button>
       <%= button_to "Like", static_likes_path(@gossip, static_id: params[:id]), method: :post%>
+      Compteur de likes : # array_likes.length
     </div>
   </div>
  <br/>
+
+<!-- Alerte pour le like -->
+
+
+<!-- Affiche les infos sur l'auteur -->
 <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
   <div class="card-header">Informations sur l'auteur</div>
   <div class="card-body">

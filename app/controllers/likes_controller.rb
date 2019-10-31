@@ -3,18 +3,18 @@ class LikesController < ApplicationController
 
   def create
     puts params
-    a = find_gossip.likes.new(user_id: current_user.id)
+    @like = find_gossip.likes.new(user_id: current_user.id)
     puts params
+    @likes = Like.all
 
-     a.save # essaie de sauvegarder en base @gossip
-
-#      @likes = Like.all
-#      redirect_to "/static/gossips/#{params[:id]}"# si ça marche, il redirige vers la page d'index du site
-#    else
-#      render :new # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-#    end
+     @like.save # essaie de sauvegarder en base @gossip
+      # @likes = Like.all
+    #  redirect_to  # si ça marche, il redirige vers la page du potin
+    #else
+    #  render :new # sinon, il render la view new (qui est celle sur laquelle on est déjà)
+    #end
     puts params
-    puts a.errors.messages
+    puts @like.errors.messages
   end
 
   def new

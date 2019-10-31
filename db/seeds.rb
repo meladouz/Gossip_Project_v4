@@ -22,14 +22,11 @@ end
 puts "'City' created"
 
 20.times do
-	u = User.create(name: Faker::Name.last_name, first_name: Faker::Name.first_name, age: Faker::Number.between(from: 10, to: 99), city_id: rand(1..15))
+	u = User.create(password: Faker::String.random(length:6), name: Faker::Name.last_name, first_name: Faker::Name.first_name, age: Faker::Number.between(from: 10, to: 99), city_id: rand(1..15))
 	u.email = u.first_name + '_' + u.name + '@mail.com'
 	u.save
 end
 puts "Users created"
-
-anonymus = User.create(name: "Anonymouss", email: "anon@mus", first_name: "John Doe", age: "50", city_id: 2)
-puts "'Anonymouss' created"
 
 15.times do
 	g = Gossip.create(gossip: Faker::ChuckNorris.fact, user_id: rand(1..20), title: Faker::Games::Heroes.specialty)

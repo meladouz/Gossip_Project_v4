@@ -9,7 +9,7 @@
           <!-- lien pour page création gossip -->
           <br/> <center>
           <a class="btn btn-primary" href="/static/new/" role="button"><h3>Viens écrire ton propre gossip !</h3></a>
-          </center><br/>
+          </center>
        </div>
      </div>
   </head>
@@ -17,8 +17,9 @@
 
 <center>
   <!-- Message alerte : gossip bien créé -->
-     <br /> <br />
+
   <% if @gossip %>
+     <br /> <br />
      <div class="alert alert-success alert-dismissible fade show" role="alert">
        <strong>GG !</strong> Tu viens de créer ton gossip !
        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -30,7 +31,7 @@
   <!-- Message alerte : bien connecté -->
     <% if current_user && params["action"] == "index" %>
        <div class="alert alert-success alert-dismissible fade show" role="alert">
-         <p> Bienvenue à toi, <%= current_user.first_name %> !! </p>
+         <h2> Bienvenue à toi, <%= current_user.first_name %> ! </h2>
          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -47,11 +48,12 @@
         <div class="card-body">
           <h5 class="card-title">Gossip n°<%=gossips.id%> : <%= gossips.title %> </h5>
           <p class="card-text text-muted">Ecrit par <%= gossips.user.first_name %> <%= gossips.user.name %></p>
-          <button type="button" class="btn btn-success"><a href="/static/gossip/<%=gossips.id %>" style="text-decoration:none !important; color:white"><small>Voir </small></a></button>
-
-          <% if current_user &&  current_user.id == gossips.user.id %> <!-- user connecté et correspond au user_id du gossip -->
-            <button type="button" class="btn btn-outline-light"><a href="/static/<%=gossips.id %>/edit" style="text-decoration:none !important; color:white"><small>Editer </small></a></button>
-            <button type="submit" class="btn btn-outline-danger"><a href="/static/<%=gossips.id %>/" style="text-decoration:none !important; color:white" data-confirm = "Etes-vous sûr ?" data-method="delete"><small>Supprimer</small></a></button>
+          <% if current_user %> <!-- user connecté et correspond au user_id du gossip -->
+            <button type="button" class="btn btn-success"><a href="/static/gossip/<%=gossips.id %>" style="text-decoration:none !important; color:white"><small>Voir </small></a></button>
+            <% if current_user.id == gossips.user.id %>
+              <button type="button" class="btn btn-outline-light"><a href="/static/<%=gossips.id %>/edit" style="text-decoration:none !important; color:white"><small>Editer </small></a></button>
+              <button type="submit" class="btn btn-outline-danger"><a href="/static/<%=gossips.id %>/" style="text-decoration:none !important; color:white" data-confirm = "Etes-vous sûr ?" data-method="delete"><small>Supprimer</small></a></button>
+            <% end %>
           <% end %>
         </div>
       </div>
