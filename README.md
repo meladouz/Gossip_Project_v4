@@ -4,9 +4,9 @@
 * Ruby version = 2.5.1
 <br />
 
-* Gemfile : vérifier la présence de ces gems :
-gem "table_print", "~> 1.5"
-gem 'bootstrap'
+* Gemfile : vérifier la présence de ces gems :<br />
+gem "table_print", "~> 1.5"<br />
+gem 'bootstrap'<br />
 <br />
 
 * Pour lancer l'app : <br />
@@ -15,6 +15,6 @@ gem 'bootstrap'
 <code> $ rails server  </code> <br />
 http://localhost:3000/static/
 
-* tu peux créer un nouveau compte ou te connecter avec :
-- mail : test@mail.com
-- mdp : test1234
+* tu peux créer un nouveau compte ou te connecter avec : <br />
+<p> mail : test@mail.com </p>
+<p> mdp : test1234</p>
